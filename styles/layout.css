@@ -31,3 +31,25 @@
     height: 60px;
     animation: spin 1s linear infinite;
 }
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#todo-input {
+    flex: 1;
+    min-width: 200px;
+}
+
+#todo-form button {
+    white-space: nowrap;
+}

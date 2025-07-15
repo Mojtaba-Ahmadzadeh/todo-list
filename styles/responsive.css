@@ -20,4 +20,59 @@
         transform: none !important;
         justify-content: center;
     }
+
+    .stars {
+        justify-content: center;
+        gap: 10px !important;
+        margin-bottom: 8px;
+    }
+
+    .stars .star {
+        font-size: 24px !important;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #todo-input,
+    #todo-form button {
+        width: 100%;
+    }
+
+     li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 12px 14px;
+  }
+
+  .todo-text {
+    font-size: 15px;
+    line-height: 1.6;
+    word-break: break-word;
+    margin-bottom: 4px;
+  }
+
+  .difficulty-stars {
+    font-size: 16px;
+    display: inline-flex;
+    gap: 4px;
+    color: gold;
+    margin-bottom: 6px;
+  }
+
+  .task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .task-actions button {
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  
 }

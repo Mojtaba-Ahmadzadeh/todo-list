@@ -39,20 +39,17 @@ form.addEventListener("submit", (e) => {
   updateCharCount();
 });
 
-
 // Replace current todos list with a new one
 export function setTodos(newTodos) {
   todos = newTodos;
 }
 
-
-//  Add a new todo item
+// Add a new todo item
 export function addTodo(text, difficulty) {
   todos.push({ text, difficulty, completed: false });
   saveTodos(todos);
   renderTodos();
 }
-
 
 // Toggle completed state of a todo item
 export function toggleCompleted(index) {
@@ -60,7 +57,6 @@ export function toggleCompleted(index) {
   saveTodos(todos);
   renderTodos();
 }
-
 
 // Delete a todo item from the list
 export function deleteTodo(index) {
