@@ -20,7 +20,11 @@ A simple and elegant To-Do List application with support for dark/light themes, 
 
 ## 📸 Preview
 
-![Preview](./images/preview.png)
+**Light Theme Preview:**  
+![Light Theme Preview](./images/preview.png)
+
+**Dark Theme Preview:**  
+![Dark Theme Preview](./images/preview2.png)
 
 ## 🚀 Getting Started
 
