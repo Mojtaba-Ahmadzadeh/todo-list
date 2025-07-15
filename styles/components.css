@@ -1,0 +1,128 @@
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: var(--placeholder-color);
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px var(--outline-color);
+}
+
+input[type="text"].error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 6px rgba(231, 76, 60, 0.3);
+}
+
+button {
+    padding: 14px 22px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.error-box {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #e74c3c;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: none;
+    font-size: 14px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.char-count {
+    font-size: 13px;
+    text-align: left;
+    margin-top: 4px;
+    color: #555;
+}
+
+.char-count.error {
+    color: #c0392b;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+li {
+    background: var(--li-bg);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+    border: 1px solid var(--li-border);
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+    color: var(--text-color);
+}
+
+.task-actions button:hover {
+    transform: scale(1.2);
+}
+
+.task-actions button:first-child:hover {
+    color: #2ecc71;
+}
+
+.task-actions button:last-child:hover {
+    color: #e74c3c;
+}
+
+.difficulty-stars {
+    margin-right: 10px;
+    font-size: 16px;
+}

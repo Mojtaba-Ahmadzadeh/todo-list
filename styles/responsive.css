@@ -1,0 +1,23 @@
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .char-count {
+        text-align: right;
+    }
+
+    .theme-toggle {
+        top: auto;
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        transform: none !important;
+        justify-content: center;
+    }
+}

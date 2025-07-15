@@ -1,0 +1,23 @@
+:root {
+    --bg-color: #fefefe;
+    --text-color: #222;
+    --input-bg: #fff;
+    --card-bg: #ffffff;
+    --li-bg: #f7faff;
+    --li-border: #e1eaf4;
+    --hover-bg: #ccc;
+
+    --border-color: #ccc;
+    --outline-color: rgba(52, 152, 219, 0.1);
+    --placeholder-color: #bbb;
+}
+
+body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #eaeaea;
+    --input-bg: #2c2c2c;
+    --card-bg: #2a2a2a;
+    --li-bg: #333;
+    --li-border: #444;
+    --hover-bg: #444;
+}

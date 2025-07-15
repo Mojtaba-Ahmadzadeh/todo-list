@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تودو لیست حرفه‌ای</title>
+  <link rel="stylesheet" href="../styles/variables.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="stylesheet" href="../styles/themes.css" />
+  <link rel="stylesheet" href="../styles/responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+
+  <style>
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #todo-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .stars-container {
+      display: flex;
+      gap: 5px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .star {
+      font-size: 20px;
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .star.selected,
+    .star.hovered {
+      color: gold;
+    }
+
+    .star-label {
+      font-size: 14px;
+      color: var(--text-secondary, #888);
+      margin-top: -5px;
+    }
+
+    #todo-input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    #todo-form button {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="loader"><div class="spinner"></div></div>
+
+  <button id="theme-toggle" class="theme-toggle">🌓 تغییر تم</button>
+
+  <div class="container">
+    <h1><span class="icon">📝</span> تودو لیست حرفه‌ای</h1>
+
+    <div class="form-wrapper">
+
+      <!-- ⭐ ستاره‌ها بالای اینپوت -->
+      <div class="stars" id="difficulty-stars" title="درجه سختی">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="مثلاً: تمرین جاوااسکریپت..." maxlength="80" />
+        <button type="submit">➕ افزودن</button>
+      </form>
+
+      <div class="star-label">سطح سختی را با ستاره‌ها مشخص کن</div>
+    </div>
+
+    <div id="error-box" class="error-box">⚠️ خطا</div>
+    <div class="char-count" id="char-count">۰/۸۰ کاراکتر</div>
+
+    <ul id="todo-list"></ul>
+  </div>
+
+  <script type="module" src="../scripts/main.js"></script>
+
+</body>
+
+</html>

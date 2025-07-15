@@ -1,0 +1,27 @@
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-bg);
+    transform: scale(1.03);
+}
+
+.theme-toggle svg {
+    font-size: 18px;
+}
