@@ -3,28 +3,40 @@ import { renderTodos } from "./ui.js";
 
 export let todos = [];
 
-// افزودن تسک جدید به آرایه و ذخیره در localStorage
+// Add a new todo item and update storage & UI
 export function addTodo(text, difficulty, color) {
-  todos.push({ text, difficulty, color, completed: false });
+  const newTodo = {
+    id: crypto.randomUUID(), // Unique ID for each todo
+    text,
+    difficulty,
+    color,
+    completed: false,
+    deleted: false,
+  };
+
+  todos.push(newTodo);
   saveTodos(todos);
   renderTodos();
 }
 
-// جایگزینی کل آرایه تسک‌ها
+// Replace the entire todos array (used on load)
 export function setTodos(newTodos) {
   todos = newTodos;
 }
 
-// تغییر وضعیت انجام شده تسک
-export function toggleCompleted(index) {
-  todos[index].completed = !todos[index].completed;
+// Toggle the completion status of a todo by its ID
+export function toggleCompletedById(id) {
+  const todo = todos.find(t => t.id === id);
+  if (!todo) return;
+  todo.completed = !todo.completed;
   saveTodos(todos);
   renderTodos();
 }
 
-// حذف تسک
-export function deleteTodo(index) {
-  todos.splice(index, 1);
+// Mark a todo as deleted (soft delete)
+export function deleteTodoById(id) {
+  const todo = todos.find(t => t.id === id);
+  if (!todo || todo.deleted) return;
+  todo.deleted = true;
   saveTodos(todos);
-  renderTodos();
 }

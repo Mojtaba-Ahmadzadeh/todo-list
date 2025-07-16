@@ -1,5 +1,6 @@
-import { todos, toggleCompleted, deleteTodo } from "./todo.js";
+import { todos, toggleCompletedById, deleteTodoById } from "./todo.js";
 import { MAX_LENGTH } from "./utils.js";
+import { filterTodos, currentFilter } from "./main.js";
 
 const $ = document;
 
@@ -8,42 +9,59 @@ const input = $.getElementById("todo-input");
 const charCount = $.getElementById("char-count");
 const errorBox = $.getElementById("error-box");
 
+// Generate stars for difficulty display
 function getStarsHTML(count) {
   return Array(count).fill("⭐").join("");
 }
 
 function createTodoElement(todo, index) {
-  const li = $.createElement("li");
+  const li = document.createElement("li");
   li.className = "todo-item";
-  
+
   if (todo.completed) li.classList.add("completed");
+  if (todo.deleted) li.classList.add("deleted");
 
   if (todo.color) {
     li.style.backgroundColor = todo.color;
   }
 
-  const textSpan = $.createElement("span");
+  const textSpan = document.createElement("span");
   textSpan.className = "todo-text";
   textSpan.textContent = todo.text;
 
-  const starsSpan = $.createElement("span");
+  const starsSpan = document.createElement("span");
   starsSpan.className = "todo-stars";
   starsSpan.innerHTML = getStarsHTML(todo.difficulty || 0);
 
-  const actions = $.createElement("div");
+  const actions = document.createElement("div");
   actions.className = "task-actions";
 
-  const doneBtn = $.createElement("button");
+  const doneBtn = document.createElement("button");
   doneBtn.innerHTML = "✅";
   doneBtn.title = "Mark as done";
   doneBtn.dataset.index = index;
-  doneBtn.addEventListener("click", () => toggleCompleted(index));
 
-  const deleteBtn = $.createElement("button");
+  const deleteBtn = document.createElement("button");
   deleteBtn.innerHTML = "🗑️";
   deleteBtn.title = "Delete task";
   deleteBtn.dataset.index = index;
-  deleteBtn.addEventListener("click", () => deleteTodo(index));
+
+  // Disable buttons if todo is marked deleted
+  if (todo.deleted) {
+    doneBtn.disabled = true;
+    deleteBtn.disabled = true;
+    doneBtn.style.opacity = "0.5";
+    deleteBtn.style.opacity = "0.5";
+  } else {
+    doneBtn.addEventListener("click", () => {
+      toggleCompletedById(todo.id);
+      filterTodos(currentFilter);
+    });
+    deleteBtn.addEventListener("click", () => {
+      deleteTodoById(todo.id);
+      filterTodos(currentFilter);
+    });
+  }
 
   actions.append(doneBtn, deleteBtn);
   li.append(textSpan, starsSpan, actions);
@@ -51,9 +69,10 @@ function createTodoElement(todo, index) {
   return li;
 }
 
-export function renderTodos() {
+// Render list of todos (filtered or full)
+export function renderTodos(filteredTodos = todos) {
   list.innerHTML = "";
-  todos.forEach((todo, index) => {
+  filteredTodos.forEach((todo, index) => {
     const todoElement = createTodoElement(todo, index);
     list.appendChild(todoElement);
   });

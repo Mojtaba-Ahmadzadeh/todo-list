@@ -1,11 +1,9 @@
-/* فرم */
 form {
     display: flex;
     gap: 10px;
     margin-bottom: 14px;
 }
 
-/* ورودی متن */
 input[type="text"] {
     flex: 1;
     padding: 14px 16px;
@@ -32,7 +30,6 @@ input[type="text"].error {
     box-shadow: 0 0 6px rgba(231, 76, 60, 0.3);
 }
 
-/* دکمه بدون تغییر رنگ هاور */
 button {
     padding: 14px 22px;
     background-color: #3498db;
@@ -42,16 +39,13 @@ button {
     font-size: 16px;
     cursor: pointer;
     white-space: nowrap;
-    /* حذف transition برای background-color هنگام هاور */
 }
 
-/* هاور دکمه غیرفعال شد (هیچ تغییری نده) */
 button:hover {
     background-color: #3498db;
-    /* همون رنگ اصلی */
 }
 
-/* باکس نمایش خطا */
+
 .error-box {
     background-color: #fdecea;
     color: #c0392b;
@@ -65,7 +59,6 @@ button:hover {
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* شمارش کاراکتر */
 .char-count {
     font-size: 13px;
     text-align: left;
@@ -77,7 +70,6 @@ button:hover {
     color: #c0392b;
 }
 
-/* لیست تسک */
 ul {
     list-style: none;
     padding: 0;
@@ -104,7 +96,6 @@ li.completed span {
     color: #aaa;
 }
 
-/* دکمه‌های عملیات تسک */
 .task-actions {
     display: flex;
     gap: 10px;
@@ -154,7 +145,6 @@ li.completed span {
     color: gold;
 }
 
-/* انتخاب رنگ (color picker) */
 .color-picker {
     margin-top: 1rem;
     display: flex;
@@ -180,7 +170,6 @@ body.dark .color-option:hover {
     border-color: #666;
 }
 
-/* انیمیشن fadeIn (برای خطا) */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -191,4 +180,85 @@ body.dark .color-option:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* === Filter Select Component === */
+.filter-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-color, #333);
+}
+
+.filter-select-container {
+    position: relative;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: var(--bg-color, #fff);
+    color: var(--text-color, #000);
+    outline: none;
+    appearance: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-select:hover {
+    border-color: var(--primary-color, #4f46e5);
+}
+
+.filter-select:focus {
+    border-color: var(--primary-color, #4f46e5);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+body.dark .filter-select {
+    background-color: #222;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark .filter-label {
+    color: #ccc;
+}
+
+/* === Todo Item States === */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.deleted {
+    text-decoration: line-through;
+    opacity: 0.4;
+    color: red;
+}
+
+#todo-list li {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Input Placeholder Color */
+#todo-input::placeholder {
+    color: #000;
+}
+
+.dark input::placeholder {
+    color: white !important;
+    opacity: 1;
 }

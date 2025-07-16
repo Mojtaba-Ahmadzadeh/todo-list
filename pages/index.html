@@ -35,11 +35,22 @@
         <span class="star">★</span>
       </div>
 
-
       <form id="todo-form">
         <input type="text" id="todo-input" placeholder="مثلاً: تمرین جاوااسکریپت..." maxlength="80" />
         <button type="submit">➕ افزودن</button>
       </form>
+
+      <div class="filter-wrapper">
+        <label for="filter-select" class="filter-label">فیلتر تسک‌ها:</label>
+        <div class="filter-select-container">
+          <select id="filter-select" class="filter-select">
+            <option value="all">📋 همه تسک‌ها</option>
+            <option value="completed">✅ انجام‌شده</option>
+            <option value="active">🕓 در حال انجام</option>
+            <option value="deleted">🗑️ حذف‌شده</option>
+          </select>
+        </div>
+      </div>
 
       <div class="star-label">سطح سختی را با ستاره‌ها مشخص کن</div>
       <div class="color-picker">
@@ -58,6 +69,7 @@
   </div>
 
   <script type="module" src="../scripts/main.js"></script>
+
 
 </body>
 
