@@ -1,9 +1,11 @@
+/* فرم */
 form {
     display: flex;
     gap: 10px;
     margin-bottom: 14px;
 }
 
+/* ورودی متن */
 input[type="text"] {
     flex: 1;
     padding: 14px 16px;
@@ -30,6 +32,7 @@ input[type="text"].error {
     box-shadow: 0 0 6px rgba(231, 76, 60, 0.3);
 }
 
+/* دکمه بدون تغییر رنگ هاور */
 button {
     padding: 14px 22px;
     background-color: #3498db;
@@ -39,13 +42,16 @@ button {
     font-size: 16px;
     cursor: pointer;
     white-space: nowrap;
-    transition: background-color 0.3s ease;
+    /* حذف transition برای background-color هنگام هاور */
 }
 
+/* هاور دکمه غیرفعال شد (هیچ تغییری نده) */
 button:hover {
-    background-color: #2980b9;
+    background-color: #3498db;
+    /* همون رنگ اصلی */
 }
 
+/* باکس نمایش خطا */
 .error-box {
     background-color: #fdecea;
     color: #c0392b;
@@ -59,6 +65,7 @@ button:hover {
     animation: fadeIn 0.3s ease-in-out;
 }
 
+/* شمارش کاراکتر */
 .char-count {
     font-size: 13px;
     text-align: left;
@@ -70,6 +77,7 @@ button:hover {
     color: #c0392b;
 }
 
+/* لیست تسک */
 ul {
     list-style: none;
     padding: 0;
@@ -96,6 +104,7 @@ li.completed span {
     color: #aaa;
 }
 
+/* دکمه‌های عملیات تسک */
 .task-actions {
     display: flex;
     gap: 10px;
@@ -122,31 +131,64 @@ li.completed span {
     color: #e74c3c;
 }
 
-.difficulty-stars {
-    margin-right: 10px;
-    font-size: 16px;
-}
-
-.stars-container {
+#difficulty-stars {
     display: flex;
-    gap: 5px;
-    cursor: pointer;
-    user-select: none;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: nowrap;
+    direction: rtl;
 }
 
 .star {
-    font-size: 20px;
-    color: #ccc;
+    font-size: 28px;
+    cursor: pointer;
+    color: gray;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: color 0.2s;
 }
 
-.star.selected,
-.star.hovered {
+.star.selected {
     color: gold;
 }
 
-.star-label {
-    font-size: 14px;
-    color: var(--text-secondary, #888);
-    margin-top: -5px;
+/* انتخاب رنگ (color picker) */
+.color-picker {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.color-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+    border-color: #ccc;
+}
+
+body.dark .color-option:hover {
+    border-color: #666;
+}
+
+/* انیمیشن fadeIn (برای خطا) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

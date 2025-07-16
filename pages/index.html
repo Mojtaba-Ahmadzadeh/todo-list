@@ -27,13 +27,14 @@
 
     <div class="form-wrapper">
 
-      <div class="stars stars-container" id="difficulty-stars" title="درجه سختی">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star" data-value="4">★</span>
-        <span class="star" data-value="5">★</span>
+      <div id="difficulty-stars">
+        <span class="star selected">★</span>
+        <span class="star selected">★</span>
+        <span class="star selected">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
       </div>
+
 
       <form id="todo-form">
         <input type="text" id="todo-input" placeholder="مثلاً: تمرین جاوااسکریپت..." maxlength="80" />
@@ -41,6 +42,13 @@
       </form>
 
       <div class="star-label">سطح سختی را با ستاره‌ها مشخص کن</div>
+      <div class="color-picker">
+        <span class="color-option" data-color="#f87171" style="background-color: #f87171;"></span>
+        <span class="color-option" data-color="#60a5fa" style="background-color: #60a5fa;"></span>
+        <span class="color-option" data-color="#34d399" style="background-color: #34d399;"></span>
+        <span class="color-option" data-color="#fbbf24" style="background-color: #fbbf24;"></span>
+        <span class="color-option" data-color="#a78bfa" style="background-color: #a78bfa;"></span>
+      </div>
     </div>
 
     <div id="error-box" class="error-box">⚠️ خطا</div>
@@ -50,6 +58,7 @@
   </div>
 
   <script type="module" src="../scripts/main.js"></script>
+
 </body>
 
 </html>
