@@ -1,7 +1,6 @@
 // storage.js
 
 // Save todos array to localStorage
-// ذخیره آرایه تو‌دوها به صورت JSON در localStorage
 export function saveTodos(todos) {
   try {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -10,7 +9,7 @@ export function saveTodos(todos) {
   }
 }
 
-// بارگذاری آرایه تو‌دوها از localStorage
+// Load todos
 export function loadTodos() {
   try {
     const todosStr = localStorage.getItem("todos");
@@ -21,4 +20,3 @@ export function loadTodos() {
     return [];
   }
 }
-

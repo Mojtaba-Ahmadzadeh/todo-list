@@ -4,10 +4,11 @@ import { renderTodos } from "./ui.js";
 export let todos = [];
 
 // Add a new todo item and update storage & UI
-export function addTodo(text, difficulty, color) {
+export function addTodo(text, difficulty, color, description = "") {
   const newTodo = {
-    id: crypto.randomUUID(), // Unique ID for each todo
+    id: crypto.randomUUID(),
     text,
+    description,
     difficulty,
     color,
     completed: false,

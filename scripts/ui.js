@@ -29,6 +29,10 @@ function createTodoElement(todo, index) {
   textSpan.className = "todo-text";
   textSpan.textContent = todo.text;
 
+  const descriptionSpan = document.createElement("p");
+  descriptionSpan.className = "todo-description";
+  descriptionSpan.textContent = todo.description || "";
+
   const starsSpan = document.createElement("span");
   starsSpan.className = "todo-stars";
   starsSpan.innerHTML = getStarsHTML(todo.difficulty || 0);
@@ -64,7 +68,9 @@ function createTodoElement(todo, index) {
   }
 
   actions.append(doneBtn, deleteBtn);
-  li.append(textSpan, starsSpan, actions);
+
+  // اضافه کردن عناصر به ترتیب صحیح
+  li.append(textSpan, descriptionSpan, starsSpan, actions);
 
   return li;
 }
