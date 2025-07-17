@@ -71,9 +71,6 @@ body.dark #todo-description {
 }
 
 
-
-
-
 button {
     padding: 14px 22px;
     background-color: #3498db;
@@ -277,6 +274,27 @@ body.dark .filter-select {
 body.dark .filter-label {
     color: #ccc;
 }
+
+.sort-wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sort-select {
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+}
+
+.dark .sort-select {
+  background-color: #1f2937;
+  color: #fff;
+  border-color: #4b5563;
+}
+
 
 /* === Todo Item States === */
 .completed {

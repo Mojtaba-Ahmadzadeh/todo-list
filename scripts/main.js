@@ -16,6 +16,7 @@ const stars = starsContainer.querySelectorAll(".star");
 const colorOptions = $.querySelectorAll(".color-option");
 const filterSelect = $.getElementById("filter-select");
 const descriptionInput = $.getElementById("todo-description");
+const sortSelect = document.getElementById("sort-select");
 
 // ==== State ====
 let selectedDifficulty = 0;
@@ -33,16 +34,31 @@ colorOptions.forEach(option => {
 // ==== Filtering ====
 function filterTodos(type) {
   currentFilter = type;
+  let filtered = [];
 
-  const filtered = todos.filter(todo => {
-    if (type === "completed") return todo.completed && !todo.deleted;
-    if (type === "active") return !todo.completed && !todo.deleted;
-    if (type === "deleted") return todo.deleted;
-    return !todo.deleted;
-  });
+  if (type === "completed") {
+    filtered = todos.filter(todo => todo.completed && !todo.deleted);
+  } else if (type === "active") {
+    filtered = todos.filter(todo => !todo.completed && !todo.deleted);
+  } else if (type === "deleted") {
+    filtered = todos.filter(todo => todo.deleted);
+  } else {
+    filtered = todos.filter(todo => !todo.deleted);
+  }
+
+  const sortType = sortSelect.value;
+  if (sortType === "difficulty-asc") {
+    filtered.sort((a, b) => a.difficulty - b.difficulty);
+  } else if (sortType === "difficulty-desc") {
+    filtered.sort((a, b) => b.difficulty - a.difficulty);
+  }
 
   renderTodos(filtered);
 }
+
+sortSelect.addEventListener("change", () => {
+  filterTodos(currentFilter); // اعمال مجدد فیلتر با ترتیب جدید
+});
 
 filterSelect.addEventListener("change", () => {
   filterTodos(filterSelect.value);

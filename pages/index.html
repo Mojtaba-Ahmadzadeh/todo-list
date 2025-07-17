@@ -5,13 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تودو لیست حرفه‌ای</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="../styles/variables.css" />
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/layout.css" />
   <link rel="stylesheet" href="../styles/components.css" />
   <link rel="stylesheet" href="../styles/themes.css" />
   <link rel="stylesheet" href="../styles/responsive.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,42 +27,53 @@
   <div class="container">
     <h1><span class="icon">📝</span> تودو لیست حرفه‌ای</h1>
 
+    <!-- فرم افزودن تسک -->
     <div class="form-wrapper">
+      <form id="todo-form" class="todo-form">
 
-      <div id="difficulty-stars">
-        <span class="star selected">★</span>
-        <span class="star selected">★</span>
-        <span class="star selected">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-      </div>
+        <!-- سطح سختی -->
+        <div id="difficulty-stars" class="difficulty-stars">
+          <span class="star selected">★</span>
+          <span class="star selected">★</span>
+          <span class="star selected">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+        </div>
 
-      <form id="todo-form" style="display: flex; flex-direction: column; gap: 10px;">
-        <input type="text" id="todo-input" placeholder="مثلاً: تمرین جاوااسکریپت..." maxlength="80"
-          style="padding: 10px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc;" />
+        <!-- عنوان تسک -->
+        <input type="text" id="todo-input" class="todo-input" placeholder="مثلاً: تمرین جاوااسکریپت..."
+          maxlength="80" />
 
-        <textarea id="todo-description" placeholder="توضیحات بیشتر در اینجا..." rows="3" maxlength="200"
-          style="padding: 10px; font-size: 0.95rem; border-radius: 8px; border: 1px solid #ccc; resize: vertical;"></textarea>
+        <!-- توضیحات تسک -->
+        <textarea id="todo-description" class="todo-description" placeholder="توضیحات بیشتر در اینجا..." rows="3"
+          maxlength="200"></textarea>
 
-        <button type="submit" class="btn"
-          style="padding: 10px; font-size: 1.1rem; border-radius: 8px; border: none; background-color: #3b82f6; color: white; cursor: pointer;">
-          ➕ افزودن
-        </button>
+        <!-- دکمه افزودن -->
+        <button type="submit" class="btn add-btn">➕ افزودن</button>
       </form>
 
-
+      <!-- فیلترها -->
       <div class="filter-wrapper">
         <label for="filter-select" class="filter-label">فیلتر تسک‌ها:</label>
-        <div class="filter-select-container">
-          <select id="filter-select" class="filter-select">
-            <option value="all">📋 همه تسک‌ها</option>
-            <option value="completed">✅ انجام‌شده</option>
-            <option value="active">🕓 در حال انجام</option>
-            <option value="deleted">🗑️ حذف‌شده</option>
-          </select>
-        </div>
+        <select id="filter-select" class="filter-select">
+          <option value="all">📋 همه تسک‌ها</option>
+          <option value="completed">✅ انجام‌شده</option>
+          <option value="active">🕓 در حال انجام</option>
+          <option value="deleted">🗑️ حذف‌شده</option>
+        </select>
       </div>
 
+      <!-- مرتب‌سازی -->
+      <div class="sort-wrapper">
+        <label for="sort-select" class="sort-label">مرتب‌سازی:</label>
+        <select id="sort-select" class="sort-select">
+          <option value="none">🔀 پیش‌فرض</option>
+          <option value="difficulty-asc">⬆️ سختی (صعودی)</option>
+          <option value="difficulty-desc">⬇️ سختی (نزولی)</option>
+        </select>
+      </div>
+
+      <!-- رنگ‌ها -->
       <div class="star-label">سطح سختی را با ستاره‌ها مشخص کن</div>
       <div class="color-picker">
         <span class="color-option" data-color="#f87171" style="background-color: #f87171;"></span>
@@ -71,24 +84,25 @@
       </div>
     </div>
 
+    <!-- پیام خطا و شمارنده کاراکتر -->
     <div id="error-box" class="error-box">⚠️ خطا</div>
     <div class="char-count" id="char-count">۰/۸۰ کاراکتر</div>
 
-    <ul id="todo-list">
-    </ul>
+    <!-- لیست تسک‌ها -->
+    <ul id="todo-list"></ul>
 
-    <div class="export-buttons" style="display: flex; gap: 10px; margin-top: 20px;">
+    <!-- دکمه‌های خروجی -->
+    <div class="export-buttons">
       <button id="export-json" class="btn">📦 خروجی JSON</button>
       <button id="export-csv" class="btn">📄 خروجی CSV</button>
       <button id="export-pdf" class="btn">🧾 خروجی PDF</button>
     </div>
-
-
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script type="module" src="../scripts/main.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script type="module" src="../scripts/main.js"></script>
 
 </body>
 
